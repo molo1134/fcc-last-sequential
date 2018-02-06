@@ -1,5 +1,11 @@
 #!/bin/sh
-DISTRICT=1
+
+DISTRICT=$1
+if [ ! "$DISTRICT" ]; then
+	DISTRICT='1'
+fi
+
+
 DATAFILE="$HOME/tmp/amat_hs.dat.gz"
 
 LANG=C
