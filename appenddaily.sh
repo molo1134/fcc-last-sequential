@@ -10,7 +10,7 @@ URL=http://wireless.fcc.gov/uls/data/daily/l_am_${DAY}.zip
 
 TMP=$(mktemp)
 
-wget -q -O $TMP $URL
+wget --tries=3 --timeout=30 -q -O $TMP $URL
 
 unzip -p $TMP HS.dat | grep SYSGRT | gzip -c >> $DATAFILE
 

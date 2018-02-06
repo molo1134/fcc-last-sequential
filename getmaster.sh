@@ -7,7 +7,7 @@ TMP=$(mktemp)
 LANG=C
 export LANG
 
-wget -q -O $TMP $MASTERURL
+wget --tries=3 --timeout=30 -q -O $TMP $MASTERURL
 
 unzip -p $TMP HS.dat | grep SYSGRT | gzip -c > $DATAFILE
 
